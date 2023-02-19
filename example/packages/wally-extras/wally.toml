@@ -1,0 +1,13 @@
+# Maybe this has stuff we need less frequently than our other packages
+[package]
+name = "gaffer/example-extras"
+version = "0.0.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+private = true
+
+[dependencies]
+TableUtil = "sleitnick/table-util@1.1.5"
+Comm = "sleitnick/comm@0.3.1"
+Signal = "sleitnick/signal@1.2.1"
+RoFraps = "howmanysmall/rofraps@1.2.2"

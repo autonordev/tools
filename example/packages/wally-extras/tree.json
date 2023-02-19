@@ -1,0 +1,7 @@
+{
+  "ReplicatedStorage": {
+    // Remember that 'Packages' is already being used by third_party
+    // So we'll name this something else to avoid conflicts
+    "ExtraPackages": "./Packages"
+  }
+}

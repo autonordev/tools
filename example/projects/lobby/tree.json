@@ -1,0 +1,13 @@
+{
+  "ReplicatedStorage": {
+    "Shared": "./shared"
+  },
+  "ServerScriptService": {
+    "Server": "./server"
+  },
+  "StarterPlayer": {
+    "StarterPlayerScripts": {
+      "Client": "./client"
+    }
+  }
+}

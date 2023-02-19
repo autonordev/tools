@@ -1,0 +1,7 @@
+{
+  "Lighting": {
+    "$properties": {
+      "Ambient": { "Color3": [1, 1, 1] }
+    }
+  }
+}

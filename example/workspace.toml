@@ -1,0 +1,3 @@
+name = "my-project"
+edition = 0
+includes = ["lighting"]

@@ -1,0 +1,7 @@
+name = "sourcemap"
+edition = 0
+includes = ["admin", "third_party"]
+
+[outputs]
+project = "//default.project.json"
+build = false

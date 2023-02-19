@@ -1,0 +1,16 @@
+[package]
+name = "howmanysmall/rofraps"
+description = "A performance measurement tool for Roblox."
+license = "MIT"
+realm = "shared"
+registry = "https://github.com/UpliftGames/wally-index"
+version = "1.2.2"
+exclude = [
+	"docs", ".moonwave", "test", "build",
+	"RoFraps.rbxm", "RoFraps.rbxmx",
+	"changelog.md", "README.md", ".styluaignore", ".gitignore",
+	"aftman.toml", "moonwave.toml", "selene.toml", "stylua.toml", "testez-companion.toml", "testez.toml",
+	"update.bat"
+]
+
+[dependencies]

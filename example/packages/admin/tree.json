@@ -1,0 +1,23 @@
+{
+  // Comments work!!!
+  "ServerScriptService": {
+    "AdminScript": {
+      "$className": "Folder",
+
+      "Assets": "//assets"
+
+      // "Utilities": {
+      //   I'm not so sure on this though
+      //   TODO: Inline includes
+      //   "$include": "my-utilities"
+      // }
+    }
+  }
+
+  // Gaffer leaves this untouched, so it *does* work -- just only for me.
+  // "ReplicatedFirst": {
+  //   "AbsoluteSystemPathExample": {
+  //     "$path": "Q:/Code/gaffer/example/assets"
+  //   }
+  // }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "overwritten value",
+  "globIgnorePaths": ["**/*.spec.lua"],
+  "tree": "example of how rojo.tree is ignored"
+}

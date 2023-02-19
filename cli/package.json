@@ -1,0 +1,42 @@
+{
+  "name": "gaffer-rbx",
+  "version": "0.0.0-test.release.5",
+  "description": "A monorepo orchestrator for Roblox developers.",
+  "keywords": [],
+  "homepage": "https://github.com/eleanorlm/gaffer#readme",
+  "bugs": {
+    "url": "https://github.com/eleanorlm/gaffer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eleanorlm/gaffer",
+    "directory": "cli"
+  },
+  "license": "MIT",
+  "main": "./src/index.js",
+  "bin": {
+    "gaffer": "./src/index.js"
+  },
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "@root/walk": "^1.1.0",
+    "chalk": "^4.1.2",
+    "commander": "^10.0.0",
+    "comment-json": "^4.2.3",
+    "joi": "^17.7.1",
+    "shelljs": "^0.8.5"
+  },
+  "engines": {
+    "node": ">=18.12 <=19.x"
+  },
+  "pkg": {
+    "scripts": "./src/index.js",
+    "assets": [],
+    "targets": [
+      "node18-linux-x64",
+      "node18-win-x64",
+      "node18-macos-x64"
+    ],
+    "outputPath": "output"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$className": "DataModel",
+
+  "StarterPlayer": {
+    "$className": "StarterPlayer",
+    "$properties": {
+      "HealthDisplayDistance": 10,
+      "NameDisplayDistance": 15,
+      "CameraMaxZoomDistance": 45
+    },
+
+    "StarterPlayerScripts": {
+      "$className": "StarterPlayerScripts"
+    },
+
+    "StarterCharacterScripts": {
+      "$className": "StarterCharacterScripts"
+    }
+  }
+}

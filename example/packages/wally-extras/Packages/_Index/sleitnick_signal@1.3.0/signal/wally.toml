@@ -1,0 +1,8 @@
+[package]
+name = "sleitnick/signal"
+description = "Signal class"
+version = "1.3.0"
+license = "MIT"
+authors = ["Stephen Leitnick"]
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"

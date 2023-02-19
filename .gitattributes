@@ -1,0 +1,17 @@
+# Convert text file line endings to lf
+* text eol=lf
+*.js text
+*.json text
+*.ts text
+
+# Identify the release and plugin bundles as binary
+/.yarn/releases/** binary
+/.yarn/plugins/** binary
+
+# Don't allow merges to lockfiles
+yarn.lock merge=binary
+
+# Use JSON with comments
+/.vscode/*.json linguist-language=JSON-with-Comments
+/example/**/tree.json linguist-language=JSON-with-Comments
+/example/**/rojo.json linguist-language=JSON-with-Comments

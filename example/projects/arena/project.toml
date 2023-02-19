@@ -1,0 +1,11 @@
+name = "arena"
+edition = 0
+includes = [
+  # Example using // (absolute, root-relative) paths
+  "//packages/admin",
+  # Example using (file) relative paths; this could also be a glob
+  "../../packages/third_party",
+]
+
+[outputs]
+build = "//artifacts/arena.rbxl"

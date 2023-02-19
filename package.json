@@ -1,0 +1,49 @@
+{
+  "name": "gaffer-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "homepage": "https://github.com/eleanorlm/gaffer#readme",
+  "bugs": {
+    "url": "https://github.com/eleanorlm/gaffer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eleanorlm/gaffer"
+  },
+  "license": "MIT",
+  "workspaces": [
+    "cli"
+  ],
+  "scripts": {
+    "build": "pkg ./cli",
+    "docs:build": "cross-env NODE_ENV=development vitepress build docs",
+    "docs:dev": "cross-env NODE_ENV=development vitepress dev docs",
+    "docs:preview": "cross-env NODE_ENV=development vitepress preview docs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "pkg": "^5.8.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-security": "^1.7.0",
+    "lodash": "^4.17.21",
+    "prettier": "^2.8.3",
+    "prettier-config-standard": "^5.0.0",
+    "prettier-plugin-packagejson": "^2.4.0",
+    "prettier-plugin-sh": "^0.12.8",
+    "vitepress": "^1.0.0-alpha.46",
+    "vue": "^3.2.47"
+  },
+  "engines": {
+    "node": ">=18.12 <=19.x"
+  }
+}

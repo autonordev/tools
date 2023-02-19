@@ -1,0 +1,34 @@
+// A basic Rojo tree with sensible defaults, used as the base for Gaffer projects
+// Remember that $className will default to the node name in Gaffer, so services often lack it
+// Similarly, Gaffer supports 'RGB' in addition to 'Color3' types
+{
+  "$className": "DataModel",
+
+  "HttpService": {
+    "$properties": {
+      "HttpEnabled": true
+    }
+  },
+
+  "SoundService": {
+    "$properties": {
+      "RespectFilteringEnabled": true
+    }
+  },
+
+  // This is the default (classic) baseplate lighting
+  "Lighting": {
+    "$properties": {
+      "Ambient": { "Color3RGB": [100, 100, 100] },
+      "Brightness": 2,
+      "ColorShift_Top": { "Color3RGB": [0, 0, 0] },
+      "ColorShift_Bottom": { "Color3RGB": [0, 0, 0] },
+      "EnvironmentDiffuseScale": 0,
+      "EnvironmentSpecularScale": 0,
+      "GlobalShadows": true,
+      "OutdoorAmbient": { "Color3RGB": [128, 128, 128] },
+      "ShadowSoftness": 0.2,
+      "Technology": "ShadowMap"
+    }
+  }
+}

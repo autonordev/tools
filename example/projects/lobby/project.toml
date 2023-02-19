@@ -1,0 +1,5 @@
+name = "lobby"
+edition = 0
+
+[outputs]
+build = "//artifacts/lobby.rbxl"

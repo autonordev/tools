@@ -1,0 +1,9 @@
+{
+  "ReplicatedStorage": {
+    "Libraries": "./libraries",
+    "Packages": "./Packages"
+  },
+  "ServerScriptService": {
+    "Packages": "./ServerPackages"
+  }
+}
