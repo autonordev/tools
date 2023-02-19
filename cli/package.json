@@ -1,6 +1,6 @@
 {
   "name": "gaffer-rbx",
-  "version": "0.0.0-test.release.5",
+  "version": "0.0.0",
   "description": "A monorepo orchestrator for Roblox developers.",
   "keywords": [],
   "homepage": "https://github.com/eleanorlm/gaffer#readme",
