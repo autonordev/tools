@@ -64,7 +64,7 @@ export default {
   title: 'Gaffer',
   description: 'A monorepo orchestrator for Roblox developers.',
   lang: 'en',
-  base: process.env.NODE_ENV === 'development' ? undefined : 'https://eleanorlm.github.io/gaffer/',
+  base: process.env.NODE_ENV === 'development' ? undefined : '/gaffer/',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
