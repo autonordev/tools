@@ -72,7 +72,7 @@ export default {
   ],
 
   themeConfig: {
-    logo: `/spotlight.png`,
+    logo: { light: '/logo-black.png', dark: '/logo-white.png' },
     socialLinks: [
       { icon: 'github', link: REPO }
     ],
