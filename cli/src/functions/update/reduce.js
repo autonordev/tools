@@ -64,4 +64,6 @@ module.exports = async (state) => {
 
     project.includes = uniq(project.includes)
   }
+
+  return true
 }

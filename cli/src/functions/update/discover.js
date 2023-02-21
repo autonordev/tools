@@ -129,4 +129,6 @@ module.exports = async (state, filter = false) => {
     if (isPackage) state.packageMapByPath.set(scheme.path, scheme.name)
     if (isProject) state.projectNames.push(scheme.name)
   }
+
+  return true
 }
