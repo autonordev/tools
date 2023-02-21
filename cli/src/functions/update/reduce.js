@@ -21,7 +21,7 @@ const resolveInclude = (state, parent, include) => {
   const includedPackage = state.index.get(packageName)
   if (!includedPackage)
     throw new Error(
-      `[G007] Include \`${include}\` (found in ${parent.path}) could not be resolved to a package.`
+      `[G007] Include \`${include}\` (found in ${parent.path}) could not be resolved.`
     )
 
   // d) Validate that it's (i) a package; (ii) not this package
