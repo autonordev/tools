@@ -72,7 +72,7 @@ export default {
   ],
 
   themeConfig: {
-    logo: `${base || '/'}logo.png`,
+    logo: `/logo2.png`,
     socialLinks: [
       { icon: 'github', link: REPO }
     ],
