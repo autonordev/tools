@@ -60,17 +60,19 @@ const sidebar = {
   ]
 }
 
+const base = process.env.NODE_ENV === 'development' ? undefined : '/gaffer/'
+
 export default {
   title: 'Gaffer',
   description: 'A monorepo orchestrator for Roblox developers.',
   lang: 'en',
-  base: process.env.NODE_ENV === 'development' ? undefined : '/gaffer/',
+  base,
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
+    ['link', { rel: 'icon', href: `${base || '/'}favicon.ico` }]
   ],
 
   themeConfig: {
-    logo: '/logo.png',
+    logo: `${base || '/'}logo.png`,
     socialLinks: [
       { icon: 'github', link: REPO },
       { icon: 'twitter', link: 'https://twitter.com/yelzom' }
