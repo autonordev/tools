@@ -46,7 +46,7 @@ module.exports = async (state, filter = false) => {
       )
     if (isProject && isPackage)
       throw new Error(
-        `[G002] \`${filePath}\` is both a project nor package file.`
+        `[G002] \`${filePath}\` is both a project and package file.`
       )
 
     // read and process the file
