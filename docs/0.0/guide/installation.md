@@ -2,7 +2,7 @@
 
 ## via Aftman or Foreman
 
-TODO: Aftman-compatible releases
+[TODO: Aftman-compatible releases](https://github.com/eleanorlm/gaffer/issues/1)
 
 ## via npm
 

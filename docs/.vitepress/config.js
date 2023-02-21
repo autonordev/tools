@@ -74,8 +74,7 @@ export default {
   themeConfig: {
     logo: `${base || '/'}logo.png`,
     socialLinks: [
-      { icon: 'github', link: REPO },
-      { icon: 'twitter', link: 'https://twitter.com/yelzom' }
+      { icon: 'github', link: REPO }
     ],
     editLink: {
       pattern: `${REPO}/blob/main/docs/:path`,
