@@ -3,8 +3,8 @@
 As discussed in the [Core Concepts](../guide/concepts) article, workspaces are made up of projects.
 
 In [the previous article](./getting-started), we created our workspace file, which also defines our project root, which we'll
-use `//` to in paths, see below for an example. This type of syntactic sugar (of which you'll find plenty in Gaffer) is supported
-in all paths; ranging from includes to outputs.
+use `//` to reference in paths, see below for an example. This type of syntactic sugar (of which you'll find plenty in
+Gaffer) is supported in all paths; ranging from includes to outputs.
 
 ## The project file
 
