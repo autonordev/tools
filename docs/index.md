@@ -18,7 +18,7 @@ features:
     details: Don't repeat yourself. Build more robust games and projects with a self-contained monorepo at whatever scale you want.
   - icon: 📑
     title: Write simpler trees
-    details: Remove redundancy and keep your Rojo trees clean and concise with syntactic sugar. Save writing $className 500 times.
+    details: Remove redundancy and keep your Rojo trees clean and concise with syntactic sugar. Save writing $path 500 times.
   - icon: 🛠️
     title: Opinionated but flexible
     details: Gaffer doesn't care you structure your  projects; it makes a few assumptions and then leaves the rest to you.
