@@ -57,10 +57,9 @@ const transformNode = (parentNode, projectPath, includePath, rootPath) => {
       }
     }
 
-    // If we create a node called 'HttpService', but don't give it a path or className
-    // then we assume that to be the node name (HttpService in this case)
-    if (node.$className === undefined && node.$path === undefined) {
-      node.$className = nodeKey
+    // Rojo will infer className from the node key
+    if (node.$className === nodeKey && node.$path === undefined) {
+      node.$className = undefined
     }
 
     if (node.$properties) transformProperties(node.$properties)
