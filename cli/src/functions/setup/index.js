@@ -3,5 +3,6 @@ const init = require('./init')
 
 module.exports = async (filter) => {
   const state = await init()
-  return await discover(state, filter)
+  await discover(state, filter)
+  return state
 }

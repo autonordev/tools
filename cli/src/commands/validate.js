@@ -1,6 +1,5 @@
-const init = require('../functions/update/init')
-const discover = require('../functions/update/discover')
-const reduce = require('../functions/update/reduce')
+const setup = require('../functions/setup')
+const reduce = require('../functions/reduce')
 const log = require('../helpers/log')
 
 module.exports = (program) => {
@@ -9,8 +8,7 @@ module.exports = (program) => {
     .description('Validates the current workspace and its schemes')
     .action(async () => {
       try {
-        const state = await init()
-        await discover(state)
+        const state = await setup()
         await reduce(state)
 
         log.success(`Workspace \`${state.workspace.name}\` is valid!`)
