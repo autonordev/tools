@@ -11,7 +11,7 @@ module.exports = (program) => {
       false
     )
     .action(async (filter) => {
-      const builtProjects = await build(filter)
+      const { builtProjects } = await build(filter)
       if (builtProjects !== false) completionMessage('built', builtProjects)
     })
 }

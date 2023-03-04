@@ -1,14 +1,11 @@
+const process = require('node:process')
 const shell = require('shelljs')
 
-module.exports = (command, cwd) => {
-  try {
+module.exports = (command, cwd = process.cwd()) => {
+  return new Promise((resolve, reject) => {
     const out = shell.exec(command, { silent: true, cwd })
 
-    if (out.stderr) {
-      throw new Error(out.stderr.trim())
-    }
-    return out.stdout.trim()
-  } catch (err) {
-    return err
-  }
+    if (out.stderr) reject(out.stderr.trim())
+    else resolve(out.stdout.trim())
+  })
 }

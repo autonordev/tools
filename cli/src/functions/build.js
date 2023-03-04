@@ -50,17 +50,23 @@ module.exports = async (filter) => {
     }
 
     // TODO: Maybe use concurrently here to reduce run times, especially for larger workspaces
-    const err = execute(projectPath, buildPath)
-    if (err)
-      log.error(
-        `[G010] Project \`${projectName}\` could not be built: ${err.message}`
-      )
-    else builtProjects.push(projectName)
+    await execute(projectPath, buildPath)
+      .then(() => {
+        builtProjects.push(projectName)
 
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
-    const { size } = fs.statSync(buildPath)
-    sizeWarning(projectName, size, buildPath)
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
+        const { size } = fs.statSync(buildPath)
+        sizeWarning(projectName, size, buildPath)
+      })
+      .catch((err) =>
+        log.error(
+          `[G010] Project \`${projectName}\` could not be built: ${err.message}`
+        )
+      )
   }
 
-  return builtProjects
+  return {
+    builtProjects,
+    state
+  }
 }
