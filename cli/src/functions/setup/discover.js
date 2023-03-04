@@ -29,7 +29,7 @@ module.exports = async (state, filter = false) => {
 
   await walk(state.root, walkFunc)
 
-  state.index = new Map()
+  state.schemes = new Map()
   state.projectNames = []
   state.packageMapByPath = new Map()
 
@@ -101,11 +101,11 @@ module.exports = async (state, filter = false) => {
     }
 
     // protect against duplicate names
-    if (state.index.has(scheme.name))
+    if (state.schemes.has(scheme.name))
       throw new Error(
         `[G005] \`${filePath}\`'s name (${
           scheme.name
-        }) is already in use by \`${state.index.get(scheme.name).path}\``
+        }) is already in use by \`${state.schemes.get(scheme.name).path}\``
       )
     // don't let people name their project/package the workspace name
     if (scheme.name === state.workspace.name) {
@@ -124,8 +124,8 @@ module.exports = async (state, filter = false) => {
       )
     }
 
-    // add this entry to the index
-    state.index.set(scheme.name, scheme)
+    // add this entry to the schemes index
+    state.schemes.set(scheme.name, scheme)
     if (isPackage) state.packageMapByPath.set(scheme.path, scheme.name)
     if (isProject) state.projectNames.push(scheme.name)
   }

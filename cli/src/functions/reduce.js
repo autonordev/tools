@@ -2,12 +2,12 @@
 const path = require('node:path')
 const { uniq } = require('lodash')
 
-const flatten = (index, project, parent, meta) => {
+const flatten = (schemes, project, parent, meta) => {
   for (const includeName of parent.includes) {
-    const include = index.get(includeName)
+    const include = schemes.get(includeName)
     if (!project.includes.includes(includeName))
       project.includes.push(includeName)
-    flatten(index, project, include, includeName)
+    flatten(schemes, project, include, includeName)
   }
 }
 
@@ -18,7 +18,7 @@ const resolveInclude = (state, parent, include) => {
     packageName = state.packageMapByPath.get(include)
 
   // c) Verify it's valid
-  const includedPackage = state.index.get(packageName)
+  const includedPackage = state.schemes.get(packageName)
   if (!includedPackage)
     throw new Error(
       `[G007] Include \`${include}\` (found in ${parent.path}) could not be resolved.`
@@ -39,7 +39,7 @@ const resolveInclude = (state, parent, include) => {
 
 module.exports = async (state) => {
   // 1. Resolve includes (on all schemes) to just their names
-  for (const scheme of state.index.values()) {
+  for (const scheme of state.schemes.values()) {
     for (const i in scheme.includes) {
       const include = scheme.includes[i]
       scheme.includes[i] = resolveInclude(state, scheme, include)
@@ -48,7 +48,7 @@ module.exports = async (state) => {
 
   // 2. Flatten the 'include tree' for projects
   for (const projectName of state.projectNames) {
-    const project = state.index.get(projectName)
+    const project = state.schemes.get(projectName)
 
     // Bring all workspace includes into our projects
     state.workspace.includes.forEach((include) =>
@@ -56,10 +56,10 @@ module.exports = async (state) => {
     )
 
     for (const includeName of project.includes) {
-      const include = state.index.get(includeName)
+      const include = state.schemes.get(includeName)
       if (!project.includes.includes(includeName))
         project.includes.push(includeName)
-      flatten(state.index, project, include, 'root')
+      flatten(state.schemes, project, include, 'root')
     }
 
     project.includes = uniq(project.includes)

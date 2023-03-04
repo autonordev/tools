@@ -39,7 +39,7 @@ module.exports = async (filter) => {
   const builtProjects = []
 
   for (const projectName of state.projectNames) {
-    const project = state.index.get(projectName)
+    const project = state.schemes.get(projectName)
     const buildPath = project.outputs.build
     const projectPath = project.outputs.project
     if (buildPath === false) {

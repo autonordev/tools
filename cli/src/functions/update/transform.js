@@ -100,7 +100,7 @@ module.exports = async (state) => {
   for (const projectName of state.projectNames) {
     // 1. Import project's tree.json files
     const trees = []
-    const project = state.index.get(projectName)
+    const project = state.schemes.get(projectName)
 
     // Include the base tree and project specific tree
     trees.push(
@@ -117,7 +117,7 @@ module.exports = async (state) => {
 
     // 2. Bring in include's tree.json files
     for (const includeName of project.includes) {
-      const include = state.index.get(includeName)
+      const include = state.schemes.get(includeName)
       trees.push(
         transformNode(
           importTree(include),
