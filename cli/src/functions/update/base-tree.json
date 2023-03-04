@@ -30,5 +30,12 @@
       "ShadowSoftness": 0.2,
       "Technology": "ShadowMap"
     }
+  },
+
+  // do not remove or everything will break
+  // not literally; but this is here to prevent a few glitches that can occur if the other is not specified
+  "StarterPlayer": {
+    "StarterCharacterScripts": {},
+    "StarterPlayerScripts": {}
   }
 }
