@@ -47,7 +47,7 @@ edition = 0
 
 All scheme and workspace files must have:
 
-- a name, which must begin and end with an alphanumeric character, and can contain only dashes, underscores, and forward slashes
+- a name, which must begin and end with an alphanumeric character, and can contain only dashes, underscores, dots, and forward slashes
   - unlike with other tools, like Aftman or Wally, a forward slash doesn't necessarily mean anything in Gaffer;
     there isn't scoping. However, you _should_ use names sensibly and consistently throughout your workspaces.
 - an 'edition' value, which must be simply `0`

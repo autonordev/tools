@@ -4,8 +4,8 @@ const Joi = require('joi')
 // common schema values
 const name = Joi.string()
   // Regex allows for alphanumeric characters (lowercase)
-  // and (except for at the start) dashes, underscores, and slashes
-  .regex(/^[a-z0-9]+(?:[-_/][A-Za-z0-9]+)*$/)
+  // and (except for at the start) dashes, underscores, dots, and slashes
+  .regex(/^[A-Za-z0-9]+(?:[-_/.][A-Za-z0-9]+)*$/)
   .required()
 const includes = Joi.array().items(Joi.string()).default([])
 const edition = Joi.number().valid(0).required()
