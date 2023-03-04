@@ -2,20 +2,20 @@
 
 const { execSync } = require('child_process')
 const os = require('node:os')
-const setup = require('../functions/setup')
 const log = require('../helpers/log')
+const build = require('../functions/build')
 
 module.exports = (program) => {
   program
     .command('open')
     .description(
-      'Opens the built file for the specified workspace, if it exists'
+      'Build the specified project and then opens it in Roblox Studio'
     )
     .argument('<project>', 'the name of the project to open')
     .action(async (projectName) => {
       try {
         const filter = [projectName]
-        const state = await setup(filter)
+        const { state } = await build(filter)
 
         if (state.projectNames.length === 0)
           throw new Error(
