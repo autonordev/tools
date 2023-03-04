@@ -24,6 +24,14 @@ const importTree = (scheme) => {
   return {}
 }
 
+const hasObjectChildren = (node) => {
+  if (typeof node !== 'object') return false
+  for (const key in node) {
+    if (!key.startsWith('$')) return true
+  }
+  return false
+}
+
 const transformProperties = (properties) => {
   for (const name in properties) {
     const value = properties[name]
@@ -39,9 +47,10 @@ const transformProperties = (properties) => {
 }
 
 const transformNode = (parentNode, projectPath, includePath, rootPath) => {
-  const divergentPaths = projectPath !== includePath
-  const relativePath = divergentPaths && path.relative(projectPath, includePath)
-  const relativeRoot = path.relative(projectPath, rootPath)
+  const outputPath = path.dirname(projectPath)
+  const divergentPaths = outputPath !== includePath
+  const relativePath = divergentPaths && path.relative(outputPath, includePath)
+  const relativeRoot = path.relative(outputPath, rootPath)
 
   for (const nodeKey in parentNode) {
     // Ignore keys like $className, $properties
@@ -57,9 +66,13 @@ const transformNode = (parentNode, projectPath, includePath, rootPath) => {
       }
     }
 
-    // Rojo will infer className from the node key
-    if (node.$className === nodeKey && node.$path === undefined) {
-      node.$className = undefined
+    // Rojo will infer className from the node key if it's a service. Otherwise, we'll need to infer
+    // it ourselves if it's a childless node. Previously, this used to be a lot of complicated code
+    // to identify if it was a service or not and only put the $className if it was necessary
+    // But this code was super fragile and had a lot of unnecessary moving parts. So this is here
+    // instead; I'd rather redundant className definitions than broken ones lol
+    if (node.$path === undefined && !hasObjectChildren(node)) {
+      if (node.$className === undefined) node.$className = nodeKey
     }
 
     if (node.$properties) transformProperties(node.$properties)
@@ -90,9 +103,16 @@ module.exports = async (state) => {
     const project = state.index.get(projectName)
 
     // Include the base tree and project specific tree
-    trees.push(transformNode(baseTree, project.path, __dirname, state.root))
     trees.push(
-      transformNode(importTree(project), project.path, project.path, state.root)
+      transformNode(baseTree, project.outputs.project, __dirname, state.root)
+    )
+    trees.push(
+      transformNode(
+        importTree(project),
+        project.outputs.project,
+        project.path,
+        state.root
+      )
     )
 
     // 2. Bring in include's tree.json files
@@ -101,7 +121,7 @@ module.exports = async (state) => {
       trees.push(
         transformNode(
           importTree(include),
-          project.path,
+          project.outputs.project,
           include.path,
           state.root
         )
