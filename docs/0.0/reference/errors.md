@@ -103,3 +103,11 @@ and will not be passed into the generated project file.
 While not an error, this behaviour should be avoided.
 
 G011 may become an error in the future.
+
+## G012 <Badge type="warning" text="warning" /> <Badge type="info" text="notice" />
+
+## Built file (projectName) exceeds Roblox's maximum file size
+
+## Built file (projectName) is (...) bytes away from exceeding Roblox's maximum file size limit
+
+> Consider using a binary file instead of an XML file to reduce file sizes.
