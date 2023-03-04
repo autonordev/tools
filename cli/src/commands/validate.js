@@ -13,7 +13,7 @@ module.exports = (program) => {
         await discover(state)
         await reduce(state)
 
-        log.success(`Workspace ${state.workspace.name} is valid!`)
+        log.success(`Workspace \`${state.workspace.name}\` is valid!`)
         log.notice(
           'Note that this process does not validate tree or rojo.json files'
         )
