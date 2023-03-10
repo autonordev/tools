@@ -60,9 +60,7 @@ module.exports = (program) => {
         if (Array.isArray(scriptValue))
           for (const i in scriptValue) {
             await execute({
-              isScheme,
-              scheme,
-              workspace,
+              entity,
               root,
               item: scriptValue[i],
               includeNewLine: i > 0
