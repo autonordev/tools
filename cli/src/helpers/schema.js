@@ -10,7 +10,7 @@ const name = Joi.string()
 const includes = Joi.array().items(Joi.string()).default([])
 const edition = Joi.number().valid(0).required()
 
-const scriptItem = Joi.alternatives().try(
+const scriptItem = Joi.alternatives(
   Joi.string(),
   Joi.object().keys({
     cmd: Joi.string().required(),
