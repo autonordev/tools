@@ -488,10 +488,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iarna/toml@npm:^2.2.5":
-  version: 2.2.5
-  resolution: "@iarna/toml@npm:2.2.5"
-  checksum: d095381ad4554aca233b7cf5a91f243ef619e5e15efd3157bc640feac320545450d14b394aebbf6f02a2047437ced778ae598d5879a995441ab7b6c0b2c2f201
+"@iarna/toml@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@iarna/toml@npm:3.0.0"
+  checksum: 419506f8d8183eb34e3d8d632dacbaf40790d20d56290acf3ad90765e20111140335e682b02e9fe76713fbf35dc652b2b482dbfd752c0aa890e6ef39b8f1c421
   languageName: node
   linkType: hard
 
@@ -2148,7 +2148,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "gaffer-rbx@workspace:cli"
   dependencies:
-    "@iarna/toml": ^2.2.5
+    "@iarna/toml": 3.0.0
     "@root/walk": ^1.1.0
     chalk: ^4.1.2
     commander: ^10.0.0

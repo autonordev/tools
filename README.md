@@ -1,9 +1,7 @@
-# Gaffer
+<img src="./etc/gh-assets/masthead-white.png#gh-dark-mode-only" alt="Gaffer"><img src="./etc/gh-assets/masthead-dark.png#gh-light-mode-only" alt="Gaffer"><br/>
 
-**A monorepo orchestrator for Roblox developers: simplify your dev experience and create more reusable, modular projects**
+**A monorepo orchestrator for Roblox developers.**
 
-Visit [the Gaffer website](https://eleanorlm.github.io/gaffer/) to learn more.
+Visit [the Gaffer website](https://autonordev.github.io/gaffer/) to learn more.
 
-Gaffer is open source (MIT licensed) and [available on GitHub](https://github.com/eleanorlm/gaffer).
-
-TODO: More comprehensive readme; consider doing something similar for the CLI readme
+Gaffer is open source (MIT licensed) and [available on GitHub](https://github.com/autonordev/gaffer).

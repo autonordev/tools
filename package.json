@@ -2,13 +2,13 @@
   "name": "gaffer-monorepo",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://eleanorlm.github.io/gaffer",
+  "homepage": "https://autonordev.github.io/gaffer",
   "bugs": {
-    "url": "https://github.com/eleanorlm/gaffer/issues"
+    "url": "https://github.com/autonordev/gaffer/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/eleanorlm/gaffer"
+    "url": "https://github.com/autonordev/gaffer"
   },
   "license": "MIT",
   "workspaces": [

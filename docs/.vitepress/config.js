@@ -1,4 +1,4 @@
-const REPO = 'https://github.com/eleanorlm/gaffer'
+const REPO = 'https://github.com/autonordev/gaffer'
 
 const nav = [
   {

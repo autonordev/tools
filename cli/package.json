@@ -3,13 +3,13 @@
   "version": "0.0.1-dev",
   "description": "A monorepo orchestrator for Roblox developers.",
   "keywords": [],
-  "homepage": "https://eleanorlm.github.io/gaffer",
+  "homepage": "https://autonordev.github.io/gaffer",
   "bugs": {
-    "url": "https://github.com/eleanorlm/gaffer/issues"
+    "url": "https://github.com/autonordev/gaffer/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/eleanorlm/gaffer",
+    "url": "https://github.com/autonordev/gaffer",
     "directory": "cli"
   },
   "license": "MIT",
@@ -18,7 +18,7 @@
     "gaffer": "./src/index.js"
   },
   "dependencies": {
-    "@iarna/toml": "^2.2.5",
+    "@iarna/toml": "3.0.0",
     "@root/walk": "^1.1.0",
     "chalk": "^4.1.2",
     "commander": "^10.0.0",
