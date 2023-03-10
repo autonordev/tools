@@ -61,7 +61,7 @@ module.exports = async (state = {}) => {
       `[G004] Workspace file \`${configPath}\` could not be parsed: ${error.message}`
     )
   state.workspace = config
-  state.workspace.path = configPath
+  state.workspace.path = path.dirname(configPath)
 
   return state
 }

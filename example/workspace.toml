@@ -1,3 +1,10 @@
-name = "my-project"
+name = "my-workspace"
 edition = 0
 includes = ["lighting"]
+
+[scripts]
+lint = [
+  "selene update-roblox-std",
+  "selene ./projects",
+  { cmd = "stylua .", dir = "//projects" },
+]

@@ -5,3 +5,6 @@ includes = ["admin", "third_party"]
 [outputs]
 project = "//default.project.json"
 build = false
+
+[scripts]
+update = { cmd = "rojo sourcemap --include-non-scripts -o ./sourcemap.json", dir = "//" }

@@ -4,4 +4,5 @@ module.exports = (program) => {
   require('./validate')(program)
   require('./open')(program)
   require('./serve')(program)
+  require('./script')(program)
 }

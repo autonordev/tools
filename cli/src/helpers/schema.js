@@ -10,16 +10,30 @@ const name = Joi.string()
 const includes = Joi.array().items(Joi.string()).default([])
 const edition = Joi.number().valid(0).required()
 
+const scriptItem = Joi.alternatives().try(
+  Joi.string(),
+  Joi.object().keys({
+    cmd: Joi.string().required(),
+    dir: Joi.string().default('.')
+  })
+)
+const scripts = Joi.object().pattern(/./, [
+  scriptItem,
+  Joi.array().items(scriptItem)
+])
+
 const workspaceSchema = Joi.object().keys({
   name,
   edition,
-  includes
+  includes,
+  scripts
 })
 
 const projectSchema = Joi.object().keys({
   name,
   includes,
   edition,
+  scripts,
   outputs: Joi.object()
     .keys({
       build: Joi.alternatives(Joi.string(), Joi.valid(false)).required(),
@@ -31,7 +45,8 @@ const projectSchema = Joi.object().keys({
 const packageSchema = Joi.object().keys({
   name,
   includes,
-  edition
+  edition,
+  scripts
 })
 
 module.exports = {
