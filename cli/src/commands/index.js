@@ -5,4 +5,5 @@ module.exports = (program) => {
   require('./open')(program)
   require('./serve')(program)
   require('./script')(program)
+  require('./dev')(program)
 }
