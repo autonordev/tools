@@ -12,6 +12,5 @@
 yarn.lock merge=binary
 
 # Use JSON with comments
-/.vscode/*.json linguist-language=JSON-with-Comments
 /example/**/tree.json linguist-language=JSON-with-Comments
 /example/**/rojo.json linguist-language=JSON-with-Comments

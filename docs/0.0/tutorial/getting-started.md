@@ -59,8 +59,8 @@ All scheme and workspace files must have:
 You should create a `.gitattributes` file in the root of your repository, and put in:
 
 ```
-/example/**/tree.json linguist-language=JSON-with-Comments
-/example/**/rojo.json linguist-language=JSON-with-Comments
+/**/tree.json linguist-language=JSON-with-Comments
+/**/rojo.json linguist-language=JSON-with-Comments
 ```
 
 This will tell GitHub (and similar tools) that our Tree and Rojo files support comments.
