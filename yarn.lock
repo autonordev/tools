@@ -2155,6 +2155,7 @@ __metadata:
     comment-json: ^4.2.3
     joi: ^17.7.1
     shelljs: ^0.8.5
+    shelljs-live: ^0.0.5
   bin:
     gaffer: ./src/index.js
   languageName: unknown
@@ -3911,6 +3912,17 @@ __metadata:
   version: 3.0.0
   resolution: "shebang-regex@npm:3.0.0"
   checksum: 1dbed0726dd0e1152a92696c76c7f06084eb32a90f0528d11acd764043aacf76994b2fb30aa1291a21bd019d6699164d048286309a278855ee7bec06cf6fb690
+  languageName: node
+  linkType: hard
+
+"shelljs-live@npm:^0.0.5":
+  version: 0.0.5
+  resolution: "shelljs-live@npm:0.0.5"
+  dependencies:
+    cross-spawn: ^7.0.3
+  peerDependencies:
+    shelljs: ^0.8.4
+  checksum: ca201b9c3ed848f491b846d5e4537ce9a549ef8611eb1252d94161b43ce996821f0b3cc8824e25b63bf76b22f9da52071b0100504ada19ec4b66fd9fd937dab4
   languageName: node
   linkType: hard
 

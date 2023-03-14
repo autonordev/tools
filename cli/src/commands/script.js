@@ -1,7 +1,7 @@
 /* eslint-disable security/detect-object-injection */
 const setup = require('../functions/setup')
 const log = require('../helpers/log')
-const exec = require('../utilities/exec')
+const live = require('shelljs-live/promise')
 const resolvePath = require('../utilities/resolvePath')
 
 // TODO: Add error codes for these (and other Gxxx tags)
@@ -17,8 +17,8 @@ const execute = async ({ entity, root, item, includeNewLine }) => {
   if (includeNewLine === true) console.log('')
   log.notice(`Executing \`${cmd}\` in \`${dir}\``)
 
-  // prevent stderr from crashing, since we're in non-silent anyway
-  await exec(cmd, false, dir).catch(() => {})
+  // Separate package because it supports ANSI output and normal shelljs doesn't
+  await live(cmd, { cwd: dir }).catch(() => process.exit(1))
 }
 
 module.exports = (program) => {
