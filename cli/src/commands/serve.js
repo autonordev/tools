@@ -9,8 +9,7 @@ module.exports = (program) => {
     .argument('<project>', 'the name of the project to serve')
     .action(async (projectName) => {
       try {
-        const filter = [projectName]
-        const state = await update(filter)
+        const state = await update([projectName])
 
         if (state.projectNames.length === 0)
           throw new Error(

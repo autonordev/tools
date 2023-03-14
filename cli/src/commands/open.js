@@ -11,8 +11,7 @@ module.exports = (program) => {
     .argument('<project>', 'the name of the project to open')
     .action(async (projectName) => {
       try {
-        const filter = [projectName]
-        const { state } = await build(filter)
+        const { state } = await build([projectName])
 
         if (state.projectNames.length === 0)
           throw new Error(
