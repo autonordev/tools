@@ -4,8 +4,6 @@ const log = require('../helpers/log')
 const live = require('shelljs-live/promise')
 const resolvePath = require('../utilities/resolvePath')
 
-// TODO: Add error codes for these (and other Gxxx tags)
-
 const execute = async ({ entity, root, item, includeNewLine }) => {
   const cmd = typeof item === 'string' ? item : item.cmd
   const dir = await resolvePath(
