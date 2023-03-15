@@ -49,8 +49,6 @@ const transformProperties = (properties) => {
 const transformNode = (parentNode, projectPath, includePath, rootPath) => {
   const outputPath = path.dirname(projectPath)
   const divergentPaths = outputPath !== includePath
-  const relativePath = divergentPaths && path.relative(outputPath, includePath)
-  const relativeRoot = path.relative(outputPath, rootPath)
 
   for (const nodeKey in parentNode) {
     // Ignore keys like $className, $properties
@@ -79,9 +77,9 @@ const transformNode = (parentNode, projectPath, includePath, rootPath) => {
 
     // we need to reconcile these paths so that way it all still works
     if (node.$path && node.$path.startsWith('//'))
-      node.$path = path.join(relativeRoot, node.$path.replace('//', './'))
+      node.$path = path.join(rootPath, node.$path.replace('//', './'))
     if (node.$path && divergentPaths && !path.isAbsolute(node.$path)) {
-      node.$path = path.join(relativePath, node.$path)
+      node.$path = path.join(rootPath, node.$path)
     }
 
     // And now transform the children of this node
@@ -104,7 +102,7 @@ module.exports = async (state) => {
 
     // Include the base tree and project specific tree
     trees.push(
-      transformNode(baseTree, project.outputs.project, __dirname, state.root)
+      transformNode(baseTree, project.outputs.project, './', state.root)
     )
     trees.push(
       transformNode(
