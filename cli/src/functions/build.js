@@ -60,7 +60,7 @@ module.exports = async (filter) => {
       })
       .catch((err) =>
         log.error(
-          `[G010] Project \`${projectName}\` could not be built: ${err.message}`
+          `[G010] Project \`${projectName}\` could not be built: ${err}`
         )
       )
   }
