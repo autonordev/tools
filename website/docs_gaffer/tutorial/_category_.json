@@ -1,0 +1,8 @@
+{
+  "label": "Tutorial",
+  "position": 0,
+  "link": {
+    "type": "generated-index",
+    "description": "A guided walkthrough to help you get to grips with Gaffer."
+  }
+}

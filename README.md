@@ -11,4 +11,12 @@ These tools are:
 
 and any further tools I develop in this domain.
 
+## Resources
+
 Documentation and more can be found at [tools.autonor.me](https://tools.autonor.me).
+
+If you're thinking of getting involved, please read the [contributing guidelines](https://github.com/autonordev/tools/blob/main/CONTRIBUTING.md) first.
+
+## Licence
+
+[MIT License](https://github.com/autonordev/tools/blob/main/LICNSE.md)
