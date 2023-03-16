@@ -1,0 +1,8 @@
+name = "plugin"
+edition = 0
+use_base_tree = false
+
+# Note that because our workspace includes lighting into every project, this isn't really that ideal.
+
+[outputs]
+build = "//artifacts/plugin.rbxm"
