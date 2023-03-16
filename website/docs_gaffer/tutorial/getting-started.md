@@ -27,7 +27,7 @@ projects.
 
 You should:
 
-1. read the [Introduction](../guide//introduction), so you know what Gaffer is all about
+1. read the [Introduction](../guide/introduction), so you know what Gaffer is all about
 2. read the [Core Concepts](../guide/concepts) article
 3. [Install Gaffer](../guide/installation)
 
