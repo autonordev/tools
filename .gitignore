@@ -159,6 +159,8 @@ $RECYCLE.BIN/
 *.rbxlx
 *.rbxlx.lock
 *.rbxl.lock
+**/artifacts/*.rbxm
+**/artifacts/*.rbxmx
 
 # Gaffer project files
 *.project.json
