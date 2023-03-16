@@ -2,7 +2,10 @@
   "name": "gaffer-rbx",
   "version": "0.0.1-dev",
   "description": "A monorepo orchestrator for Roblox developers.",
-  "keywords": [],
+  "keywords": [
+    "rojo",
+    "roblox"
+  ],
   "homepage": "https://tools.autonor.me/gaffer",
   "bugs": {
     "url": "https://github.com/autonordev/tools/issues"
