@@ -1,0 +1,9 @@
+// Because we're not using the base tree, we'll have to create our root instance ourselves
+{
+  "$className": "Folder",
+
+  "Main": "./main"
+
+  // This isn't yet a feature.
+  // "Dependencies": { "$include": "wally" }
+}
