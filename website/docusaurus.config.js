@@ -123,7 +123,7 @@ const config = {
                 value: '<hr class="dropdown-separator">'
               },
               {
-                href: 'https://github.com/anrelease',
+                href: 'https://github.com/adrelease',
                 label: 'View releases'
               }
             ]
