@@ -1,7 +1,14 @@
-<img src="./etc/gh-assets/masthead-white.png#gh-dark-mode-only" alt="Gaffer"><img src="./etc/gh-assets/masthead-dark.png#gh-light-mode-only" alt="Gaffer"><br/>
+<img src="https://i.imgur.com/w1ePHX1.png" height="64px" width="auto">
 
-**A monorepo orchestrator for Roblox developers.**
+# tools
 
-Visit [the Gaffer website](https://autonordev.github.io/gaffer/) to learn more.
+This repository houses the tools I have created and maintain for use in developing Roblox games.
 
-Gaffer is open source (MIT licensed) and [available on GitHub](https://github.com/autonordev/gaffer).
+These tools are:
+
+- [Gaffer](https://github.com/autonordev/tools/tree/main/gaffer), a monorepo orchestrator (experimental)
+- Axon, a package linker for use with Gaffer (not yet open sourced)
+
+and any further tools I develop in this domain.
+
+Documentation and more can be found at [tools.autonor.me](https://tools.autonor.me).

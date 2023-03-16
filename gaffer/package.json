@@ -3,14 +3,14 @@
   "version": "0.0.1-dev",
   "description": "A monorepo orchestrator for Roblox developers.",
   "keywords": [],
-  "homepage": "https://autonordev.github.io/gaffer",
+  "homepage": "https://tools.autonor.me/gaffer",
   "bugs": {
-    "url": "https://github.com/autonordev/gaffer/issues"
+    "url": "https://github.com/autonordev/tools/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/autonordev/gaffer",
-    "directory": "cli"
+    "url": "https://github.com/autonordev/tools",
+    "directory": "gaffer"
   },
   "license": "MIT",
   "main": "./src/index.js",

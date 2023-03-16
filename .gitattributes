@@ -1,16 +1,19 @@
 # Convert text file line endings to lf
 * text eol=lf
-*.js text
-*.json text
-*.ts text
-
-# Identify the release and plugin bundles as binary
-/.yarn/releases/** binary
-/.yarn/plugins/** binary
 
 # Don't allow merges to lockfiles
 yarn.lock merge=binary
 
 # Use JSON with comments
-/example/**/tree.json linguist-language=JSON-with-Comments
-/example/**/rojo.json linguist-language=JSON-with-Comments
+/**/tree.json linguist-language=JSON-with-Comments
+/**/base-tree.json linguist-language=JSON-with-Comments
+/**/rojo.json linguist-language=JSON-with-Comments
+/**/axon.json linguist-language=JSON-with-Comments
+
+# Identify binary files
+/.yarn/releases/** binary
+/.yarn/plugins/** binary
+*.png binary
+*.jpg binary
+*.ico binary
+*.rbxm binary

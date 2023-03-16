@@ -36,6 +36,7 @@ out
 
 # Docusaurus cache and generated files
 .docusaurus
+.cahce-loader
 
 # Vitepress cache
 **/.vitepress/cache
