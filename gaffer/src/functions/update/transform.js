@@ -101,10 +101,13 @@ module.exports = async (state) => {
     const trees = []
     const project = state.schemes.get(projectName)
 
-    // Include the base tree and project specific tree
-    trees.push(
-      transformNode(baseTree, project.outputs.project, __dirname, state.root)
-    )
+    // Include the base tree (default)
+    if (project.use_base_tree)
+      trees.push(
+        transformNode(baseTree, project.outputs.project, __dirname, state.root)
+      )
+
+    // And now include the project specific tree
     trees.push(
       transformNode(
         importTree(project),

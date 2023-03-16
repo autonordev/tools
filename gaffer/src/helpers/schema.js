@@ -34,6 +34,7 @@ const projectSchema = Joi.object().keys({
   includes,
   edition,
   scripts,
+  use_base_tree: Joi.bool().default(true),
   outputs: Joi.object()
     .keys({
       build: Joi.alternatives(Joi.string(), Joi.valid(false)).required(),
