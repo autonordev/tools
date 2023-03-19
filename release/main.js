@@ -17,7 +17,7 @@ async function main({ toolName, version }) {
   if (!semver.valid(version)) throw new Error(`Invalid version: ${version}`)
   if (version.startsWith('v'))
     throw new Error(
-      `Invalid version: ${version}. Versions must most not be prefixed with a v.`
+      `Invalid version: ${version}. Versions must not be prefixed with a v.`
     )
 
   for (const outputTarget in constants.TARGETS) {
