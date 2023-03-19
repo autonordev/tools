@@ -1,0 +1,13 @@
+{
+  "name": "@autonor/release-tools",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octokit/rest": "^19.0.7",
+    "adm-zip": "^0.5.10",
+    "pkg": "^5.8.1",
+    "semver": "^7.3.8"
+  }
+}

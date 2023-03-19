@@ -14,7 +14,8 @@
   "workspaces": [
     "gaffer",
     "website",
-    "axon"
+    "axon",
+    "release"
   ],
   "scripts": {
     "lint": "eslint .",
