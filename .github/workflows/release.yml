@@ -1,0 +1,35 @@
+name: Release workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      toolName:
+        description: Name of the tool to build and release
+        required: true
+        type: choice
+        options:
+          - gaffer
+      version:
+        description: semver compatible version number for the release
+        required: true
+        type: string
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+
+      - name: Build version
+        run: node ./release ${{ inputs.toolName }} ${{ inputs.version }}
+
+      - name: Create release & upload artefacts
+        uses: softprops/action-gh-release@v1
+        with:
+          repository: ametools/${{ inputs.toolName }}
+          token: ${{ secrets.RELEASE_PAT }}
+          files: ./build/zip/*
+          tag_name: v${{ inputs.version }}
+          draft: true
