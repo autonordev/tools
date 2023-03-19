@@ -10,7 +10,7 @@ on:
         options:
           - gaffer
       version:
-        description: semver compatible version number for the release
+        description: 'semver compatible version number for the release. ** DO NOT PREFIX WITH A v **'
         required: true
         type: string
 

@@ -15,6 +15,10 @@ async function main({ toolName, version }) {
   const tool = constants.TOOLS[toolName]
   if (!tool) throw new Error(`Invalid tool: ${toolName}`)
   if (!semver.valid(version)) throw new Error(`Invalid version: ${version}`)
+  if (version.startsWith('v'))
+    throw new Error(
+      `Invalid version: ${version}. Versions must most not be prefixed with a v.`
+    )
 
   for (const outputTarget in constants.TARGETS) {
     const buildTarget = constants.TARGETS[outputTarget]
