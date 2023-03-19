@@ -32,15 +32,5 @@
   },
   "engines": {
     "node": ">=18.12 <=19.x"
-  },
-  "pkg": {
-    "scripts": "./src/index.js",
-    "assets": [],
-    "targets": [
-      "node18-linux-x64",
-      "node18-win-x64",
-      "node18-macos-x64"
-    ],
-    "outputPath": "output"
   }
 }

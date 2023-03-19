@@ -2,6 +2,11 @@
   "name": "@autonor/release-tools",
   "version": "0.0.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/autonordev/tools",
+    "directory": "release"
+  },
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
@@ -9,5 +14,8 @@
     "adm-zip": "^0.5.10",
     "pkg": "^5.8.1",
     "semver": "^7.3.8"
+  },
+  "engines": {
+    "node": ">=18.12 <=19.x"
   }
 }
