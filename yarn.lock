@@ -6697,7 +6697,7 @@ __metadata:
     chalk: ^4.1.2
     commander: ^10.0.0
     comment-json: ^4.2.3
-    joi: ^17.7.1
+    joi: ^17.9.0
     shelljs: ^0.8.5
     shelljs-live: ^0.0.5
   bin:
@@ -8104,16 +8104,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"joi@npm:^17.7.1":
-  version: 17.8.3
-  resolution: "joi@npm:17.8.3"
+"joi@npm:^17.9.0":
+  version: 17.9.0
+  resolution: "joi@npm:17.9.0"
   dependencies:
     "@hapi/hoek": ^9.0.0
     "@hapi/topo": ^5.0.0
     "@sideway/address": ^4.1.3
     "@sideway/formula": ^3.0.1
     "@sideway/pinpoint": ^2.0.0
-  checksum: b2c7b83f864ba91753b2dfec2a6b4b0ddfeda43aaf583b21e5ddf6005a1d3780550cc3dc7c8e21bda16ddce6217808c670d8cc12b0c7f18415093ed4beae55bf
+  checksum: 993993614f47b987370aad188ac30c67d479ed7bd43b091df492101acf1463c99b849a26c6215b4502a33063ba08686c8693485a19e069a1270490f015af37c1
   languageName: node
   linkType: hard
 
