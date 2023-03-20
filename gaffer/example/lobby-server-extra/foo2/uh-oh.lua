@@ -1,0 +1,3 @@
+-- COLLISION!!!
+-- well, not anymore, since I renamed it foo2
+-- but if you changed it back to foo, you'd get an error

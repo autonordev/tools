@@ -2,12 +2,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
 
-  // editorconfig conformity
-  "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  "editor.tabSize": 2,
-
   "eslint.run": "onType",
   "eslint.format.enable": true,
 

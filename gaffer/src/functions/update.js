@@ -1,5 +1,5 @@
-const setup = require('../setup')
-const reduce = require('../reduce')
+const setup = require('./setup')
+const reduce = require('./reduce')
 const transform = require('./transform')
 
 module.exports = async (filter) => {

@@ -1,6 +1,13 @@
 {
   "ReplicatedStorage": {
-    "Shared": "./shared"
+    "Shared": {
+      "$path": "./shared",
+      "$pulls": "//lobby-server-extra",
+
+      "bar": {
+        "custom-child": { "$className": "BoolValue" }
+      }
+    }
   },
   "ServerScriptService": {
     "Server": "./server"
