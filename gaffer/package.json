@@ -26,7 +26,7 @@
     "chalk": "^4.1.2",
     "commander": "^10.0.0",
     "comment-json": "^4.2.3",
-    "joi": "^17.7.1",
+    "joi": "^17.9.0",
     "shelljs": "^0.8.5",
     "shelljs-live": "^0.0.5"
   },
