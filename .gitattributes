@@ -5,10 +5,10 @@
 yarn.lock merge=binary
 
 # Use JSON with comments
-/**/tree.json linguist-language=JSON-with-Comments
-/**/base-tree.json linguist-language=JSON-with-Comments
-/**/rojo.json linguist-language=JSON-with-Comments
-/**/axon.json linguist-language=JSON-with-Comments
+**/tree.json linguist-language=JSON-with-Comments
+**/base-tree.json linguist-language=JSON-with-Comments
+**/rojo.json linguist-language=JSON-with-Comments
+**/axon.json linguist-language=JSON-with-Comments
 
 # Identify binary files
 /.yarn/releases/** binary

@@ -164,3 +164,8 @@ $RECYCLE.BIN/
 
 # Gaffer project files
 *.project.json
+
+# Include wally-related project files
+!**/Packages/**/default.project.json
+!**/ServerPackages/**/default.project.json
+!**/DevPackages/**/default.project.json

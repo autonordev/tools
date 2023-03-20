@@ -4,18 +4,16 @@
     "aarch",
     "aftman",
     "ametools",
-    "apos",
     "autonor",
     "autonordev",
     "closeable",
     "clsx",
     "color",
-    "dimm",
     "Gxxx",
+    "hardlinks",
     "horiz",
     "iarna",
     "infima",
-    "noreply",
     "packagejson",
     "peaceiris",
     "prerelease",
@@ -25,7 +23,6 @@
     "refs",
     "rushx",
     "softprops",
-    "tagline",
-    "vitepress"
+    "tagline"
   ]
 }
