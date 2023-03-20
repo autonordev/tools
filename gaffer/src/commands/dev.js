@@ -19,10 +19,10 @@ module.exports = (program) => {
 
         const project = state.schemes.get(projectName)
 
-        log.notice(`Built project \`${project.path}\``)
+        log.info(`Built project \`${project.path}\``)
         await open(project.outputs.build)
 
-        log.success(`Starting Rojo server for \`${project.path}\`\n`)
+        log.info(`Starting Rojo server for \`${project.path}\`\n`)
         await serve(project.outputs.project)
       } catch (err) {
         log.error(err.message)

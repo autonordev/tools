@@ -13,7 +13,7 @@ const execute = async ({ entity, root, item, includeNewLine }) => {
   )
 
   if (includeNewLine === true) console.log('')
-  log.notice(`Executing \`${cmd}\` in \`${dir}\``)
+  log.trace(`Executing \`${cmd}\` in \`${dir}\``)
 
   // Separate package because it supports ANSI output and normal shelljs doesn't
   await live(cmd, { cwd: dir }).catch(() => process.exit(1))

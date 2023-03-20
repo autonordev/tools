@@ -25,7 +25,7 @@ const sizeWarning = (projectName, size, buildPath) => {
     )
   } else if (size > NOTICE_BYTES) {
     const remaining = WARN_BYTES - size
-    log.notice(
+    log.info(
       `[G012] Built file \`${projectName}\` is ${remaining} bytes away from exceeding Roblox's maximum file size limit (${WARN_BYTES} bytes).` +
         addendum
     )
@@ -43,7 +43,7 @@ module.exports = async (filter) => {
     const buildPath = project.outputs.build
     const projectPath = project.outputs.project
     if (buildPath === false) {
-      log.notice(
+      log.info(
         `Project \`${projectName}\` was not built as it has no build output.`
       )
       continue
