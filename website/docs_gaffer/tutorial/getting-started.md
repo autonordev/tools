@@ -44,7 +44,7 @@ get started ourselves.
 Lets start by creating a directory, we'll call it `tutorial`, and creating our `workspace.toml` file. This file represents
 the root of our workspace, and sets out the main configuration options:
 
-```toml
+```toml title="workspace.toml"
 name = 'tutorial'
 edition = 0
 ```
@@ -53,7 +53,7 @@ All scheme and workspace files must have:
 
 - a name, which must begin and end with an alphanumeric character, and can contain only dashes, underscores, dots, and forward slashes
   - unlike with other tools, like Aftman or Wally, a forward slash doesn't necessarily mean anything in Gaffer;
-    there isn't scoping. However, you _should_ use names sensibly and consistently throughout your workspaces.
+    there isn't scoping. However, we recommend you use names sensibly and consistently throughout your workspaces.
 - an 'edition' value, which must be simply `0`
   - This value isn't very important currently, but if we ever make backwards incompatible changes to workspaces or schemes,
     then this value will help make clear what's broken and what's just old
@@ -62,17 +62,16 @@ All scheme and workspace files must have:
 
 You should create a `.gitattributes` file in the root of your repository, and put in:
 
-```properties
-/**/tree.json linguist-language=JSON-with-Comments
-/**/rojo.json linguist-language=JSON-with-Comments
+```properties title=".gitattributes"
+**/tree.json linguist-language=JSON-with-Comments
+**/rojo.json linguist-language=JSON-with-Comments
 ```
 
 This will tell GitHub (and similar tools) that our Tree and Rojo files support comments.
 
-You should also include any build outputs (such as `rbxl` files) _and_ any project.json files in your gitignore.
-For example, this is from the Gaffer gitignore:
+You should include any build outputs (such as `rbxl` files) _and_ any project.json files in your gitignore; not doing so could cause some nasty merge conflicts. For example, this is from the Gaffer gitignore:
 
-```ignore
+```ignore title=".gitignore"
 # Roblox level files
 *.rbxl
 *.rbxlx
@@ -83,32 +82,38 @@ For example, this is from the Gaffer gitignore:
 *.project.json
 ```
 
-If you decide against this, you may want to include the following in your gitattributes file:
+:::caution Heads up!
 
-```properties
-# merge=binary means any changes are always flagged as a merge conflict
-# linguist-generated=true is a GitHub specific thing; see the link below.
+Some tools may expect, if not rely on, custom project.json files. Most notably, [Wally](https://github.com/upliftgames/wally).
 
-*.rbxl merge=binary
-*.rbxl linguist-generated=true
+If you are using Wally, please ensure you read the [using with Wally guide](../guide/wally).
 
-*.project.json merge=binary
-*.project.json linguist-generated=true
+If you're using a different tool that depends on project files being committed to source, then you may want to follow instructions similar to those in the Wally guide.
+
+:::
+
+If you're using Gaffer to output model files (for instance, because you're doing plugin development) then you'll also want to include these to your gitignore:
+
+```ignore title=".gitignore"
+# Built model files
+**/artifacts/*.rbxm
+**/artifacts/*.rbxmx
 ```
 
-> You can learn more about this [on GitHub's documentation](https://docs.github.com/en/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github).
+In this case, we're assuming that all outputted files will be within a directory called `artifacts`. You can change this pattern according to your structure.
+
+You could also do `*.rbxm` but this would mean you can't include _any_ model files in your project, as it would ignore both built and unbuilt models. For some projects, this may be fine; for others (like fully-managed Rojo projects), it may not (the Gaffer authors recommend you use fully-managed Rojo).
 
 ### If you're using Visual Studio Code
 
 VSCode may mark comments in JSON files as being incorrect, for this reason we need to tell VSC that we're using JSON with Comments.
 Add the following in your `settings.json` file:
 
-```json
+```json title=".vscode/settings.json"
 "files.associations": {
   "/**/tree.json": "jsonc",
   "/**/rojo.json": "jsonc"
 }
 ```
 
-You may add this [in a file in your repository](https://github.com/autonordev/tools/blob/main/.vscode/settings.json), in a 'code workspace' or in your personal settings.
-How you add the setting isn't important; it's just important that you do add it.
+You may add this [in a file in your repository](https://github.com/autonordev/tools/blob/main/.vscode/settings.json), in a 'code workspace', or in your personal settings. How you add the setting isn't important: any will work.

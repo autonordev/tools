@@ -27,8 +27,7 @@ build = "//artifacts/lobby.rbxl"
 
 Since we're at it, we'll also create our `//artifacts` directory. Lets put a `.gitkeep` file there.
 This doesn't have any special meaning, but it signifies to other programmers that the directory is purposefully
-empty; remember that Git ignores empty directories. You don't need to do this if you're (unadvisedly) not gitignore-ing
-your output files.
+empty; remember that Git ignores empty directories.
 
 ## The code
 
@@ -63,7 +62,7 @@ place will look when we build it.
 Anyone whose used Rojo before is probably a bit confused; there's so much wrong with this!!!
 
 1. We're not defining our Tree as having a `$className` of DataModel
-2. We're not defining the `$className` of our services or of `StarterPlayerScripts`
+2. We're not defining the `$className` of our services or of `StarterPlayerScripts` (although this _is_ optional in Rojo)
 3. We're not including `$path`, instead just setting our nodes to strings
 
 Yet if you run `gaffer build`, you'll get a perfect place file, all up to scratch. What is this dark magic? Well, it's
@@ -73,6 +72,8 @@ actually pretty simple. Since Gaffer already is managing our Rojo project files,
    which applies some sensible defaults, like enabling HttpService, setting default lighting, and also setting the
    root `$className` to `DataModel`.
 2. With Gaffer trees, any 'node' that doesn't have a `$className` or `$path` will have its className set to the node's key.
+   - While Rojo does do this for services and other well-known singletons (like StarterPlayerScripts), Gaffer is more exhaustive and will add a `$className` for all instances. This can include things like `BlurEffect`s.
+   - Heads up though, unclassified nodes that have children are not inferred by Gaffer, and Rojo will usually assume these are folders.
 3. When a node is set to a string, Gaffer assumes we want that node to reference to that path. So Gaffer will transform it for us.
 
 If we pop open our project's `.project.json` file and prettify it, we'll see a valid Rojo project file:
@@ -110,5 +111,6 @@ If we pop open our project's `.project.json` file and prettify it, we'll see a v
 }
 ```
 
-These generated project files are not meant to be read by humans, so they'll look a bit weird, but you can see how it's all
-there. No dark magic here, officer!
+These generated project files are not meant to be read by humans, so they'll look a bit weird, but you can see how it's all there. Plus, it's included the default Roblox Lighting for us; you can read the [base-tree.json file here](https://github.com/autonordev/tools/blob/main/gaffer/src/functions/update/base-tree.json) to see what gets set.
+
+If you're creating a plugin or model, or are introducing Gaffer in an existing project and don't want the base tree, you can add `use_base_tree = false` in your `project.toml` file to disable it for that project. Heads up though that any workspace-level includes will still be included even if the base tree is disabled.
