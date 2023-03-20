@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-object-injection */
 const setup = require('../functions/setup')
 const log = require('../helpers/log')
 const live = require('shelljs-live/promise')

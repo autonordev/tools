@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-non-literal-fs-filename */
 const fs = require('node:fs')
 const jsonc = require('comment-json')
 

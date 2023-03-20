@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-object-injection, security/detect-non-literal-fs-filename */
 const path = require('node:path')
 const fs = require('node:fs')
 const { merge } = require('lodash')

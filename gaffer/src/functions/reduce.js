@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-object-injection */
 const path = require('node:path')
 const { uniq } = require('lodash')
 

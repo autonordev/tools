@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-unsafe-regex */
 const Joi = require('joi')
 
 // common schema values
