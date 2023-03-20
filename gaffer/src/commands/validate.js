@@ -11,8 +11,8 @@ module.exports = (program) => {
         const state = await setup()
         await reduce(state)
 
-        log.success(`Workspace \`${state.workspace.name}\` is valid!`)
-        log.notice(
+        log.info(`Workspace \`${state.workspace.name}\` is valid!`)
+        log.trace(
           'Note that this process does not validate tree or rojo.json files'
         )
       } catch (err) {

@@ -1,14 +1,15 @@
 const chalk = require('chalk')
 
-const prefix = chalk.bold.cyan('gaffer') + ' '
-
 const logLevels = {
   verbose: 0,
-  notice: 1,
-  success: 2,
+  trace: 1,
+  info: 2,
   warn: 3,
   error: 4
 }
+
+const makePrefix = (slot) =>
+  chalk.bold.cyan('gaffer ') + chalk.gray('[') + slot + chalk.gray(']')
 
 const level = logLevels.verbose
 
@@ -17,26 +18,26 @@ module.exports = {
 
   verbose: (message) => {
     if (level <= logLevels.verbose)
-      console.log(prefix + chalk.bgMagenta('verbose'), message)
+      console.log(makePrefix(chalk.magenta('verbose')), message)
   },
 
-  notice: (message) => {
-    if (level <= logLevels.notice)
-      console.log(prefix + chalk.bgBlue('notice'), message)
+  trace: (message) => {
+    if (level <= logLevels.trace)
+      console.log(makePrefix(chalk.blue('notice')), message)
   },
 
-  success: (message) => {
-    if (level <= logLevels.success)
-      console.log(prefix + chalk.bgGreenBright.black('success'), message)
+  info: (message) => {
+    if (level <= logLevels.info)
+      console.log(makePrefix(chalk.greenBright('info')), message)
   },
 
   warn: (message) => {
     if (level <= logLevels.warn)
-      console.warn(prefix + chalk.bgYellow.black('warning'), message)
+      console.log(makePrefix(chalk.yellow('WARN')), message)
   },
 
   error: (message) => {
     if (level <= logLevels.warn)
-      console.error(prefix + chalk.bgRed('error'), message)
+      console.log(makePrefix(chalk.red('ERR!')), message)
   }
 }
