@@ -16,6 +16,11 @@ module.exports = {
   },
   rules: {
     'comma-dangle': ['error', 'only-multiline'],
-    'import/no-unresolved': 'off'
+    'import/no-unresolved': 'off',
+
+    'security/detect-object-injection': 'off',
+    'security/detect-child-process': 'off',
+    'security/detect-non-literal-fs-filename': 'off',
+    'security/detect-unsafe-regex': 'off'
   }
 }

@@ -1,5 +1,3 @@
-/* eslint-disable security/detect-child-process */
-
 const { execSync } = require('child_process')
 const os = require('node:os')
 const log = require('../helpers/log')

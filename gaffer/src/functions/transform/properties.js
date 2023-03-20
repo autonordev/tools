@@ -1,5 +1,3 @@
-/* eslint-disable security/detect-object-injection */
-
 const transformProperties = (properties) => {
   for (const name in properties) {
     const value = properties[name]

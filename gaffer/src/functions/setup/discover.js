@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-object-injection */
 // Search for project.toml and package.toml files
 
 const fs = require('node:fs')
