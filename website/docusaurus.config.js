@@ -40,10 +40,6 @@ const config = {
         docs: {
           path: 'fake_docs'
         },
-        /* blog: {
-          showReadingTime: true,
-          editUrl
-        }, */
         blog: false,
         theme: {
           customCss: [require.resolve('./src/css/custom.css')]
@@ -61,6 +57,7 @@ const config = {
         routeBasePath: 'gaffer/docs',
         sidebarPath: require.resolve('./sidebars/gaffer.js'),
         editUrl,
+        showLastUpdateTime: true,
 
         // versioning
         lastVersion: 'current',
@@ -80,6 +77,7 @@ const config = {
         routeBasePath: 'axon/docs',
         sidebarPath: require.resolve('./sidebars/axon.js'),
         editUrl,
+        showLastUpdateTime: true,
 
         // versioning
         lastVersion: 'current',
@@ -123,7 +121,7 @@ const config = {
                 value: '<hr class="dropdown-separator">'
               },
               {
-                href: 'https://github.com/adrelease',
+                href: 'https://github.com/ametools',
                 label: 'View releases'
               }
             ]
@@ -153,56 +151,8 @@ const config = {
       },
 
       footer: {
-        links: [
-          {
-            title: 'Index',
-            items: [
-              {
-                label: 'Home',
-                to: '/'
-              },
-              {
-                label: 'Gaffer',
-                to: '/gaffer'
-              },
-              {
-                label: 'Axon',
-                to: '/axon'
-              }
-            ]
-          },
-          {
-            title: 'Maintainer',
-            items: [
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/autonordev'
-              },
-              {
-                label: 'Mastodon',
-                href: 'https://masto.ai/@eleanor'
-              },
-              {
-                label: 'Website',
-                href: 'https://autonor.me'
-              }
-            ]
-          },
-          {
-            title: 'More',
-            items: [
-              /* {
-                label: 'Blog',
-                to: '/blog'
-              }, */
-              {
-                label: 'GitHub',
-                href: 'https://github.com/autonordev/tools'
-              }
-            ]
-          }
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} autonor`
+        links: [],
+        copyright: `Copyright © ${new Date().getFullYear()} autonor<br/>Licensed under MIT`
       }
     })
 }
