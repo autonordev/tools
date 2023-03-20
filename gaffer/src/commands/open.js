@@ -30,7 +30,7 @@ module.exports = (program) => {
         }
 
         await open(buildPath)
-        log.success(`Built and opened file \`${buildPath}\``)
+        log.info(`Built and opened file \`${buildPath}\``)
       } catch (err) {
         log.error(err.message)
       }
