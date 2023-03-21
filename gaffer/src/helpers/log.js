@@ -23,7 +23,7 @@ module.exports = {
 
   trace: (message) => {
     if (level <= logLevels.trace)
-      console.log(makePrefix(chalk.blue('notice')), message)
+      console.log(makePrefix(chalk.blue('trace')), message)
   },
 
   info: (message) => {
