@@ -330,7 +330,7 @@ __metadata:
   resolution: "@autonor/tools-website@workspace:website"
   dependencies:
     "@docusaurus/core": 2.3.1
-    "@docusaurus/module-type-aliases": 2.3.1
+    "@docusaurus/module-type-aliases": 2.4.0
     "@docusaurus/preset-classic": 2.3.1
     "@mdx-js/react": ^1.6.22
     clsx: ^1.2.1
@@ -2054,6 +2054,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@docusaurus/module-type-aliases@npm:2.4.0":
+  version: 2.4.0
+  resolution: "@docusaurus/module-type-aliases@npm:2.4.0"
+  dependencies:
+    "@docusaurus/react-loadable": 5.5.2
+    "@docusaurus/types": 2.4.0
+    "@types/history": ^4.7.11
+    "@types/react": "*"
+    "@types/react-router-config": "*"
+    "@types/react-router-dom": "*"
+    react-helmet-async: "*"
+    react-loadable: "npm:@docusaurus/react-loadable@5.5.2"
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: 24eddf96298509ea70c8307dd837e600e9d4dcc904ef6493507cc58bb800fc62f1ecce20d92d35bf9a7f8f1888d20e893891b66288343cd52a1f5ac1b9dba4b7
+  languageName: node
+  linkType: hard
+
 "@docusaurus/plugin-content-blog@npm:2.3.1":
   version: 2.3.1
   resolution: "@docusaurus/plugin-content-blog@npm:2.3.1"
@@ -2360,6 +2379,25 @@ __metadata:
     react: ^16.8.4 || ^17.0.0
     react-dom: ^16.8.4 || ^17.0.0
   checksum: def8ba8404ef784c9ca5eb3d29612726c009e2b344303888ad77c8e9a1a10912264e6e6e38c529759742c8414aa1021986e2f1b9846c18181e5c0e123cec47b7
+  languageName: node
+  linkType: hard
+
+"@docusaurus/types@npm:2.4.0":
+  version: 2.4.0
+  resolution: "@docusaurus/types@npm:2.4.0"
+  dependencies:
+    "@types/history": ^4.7.11
+    "@types/react": "*"
+    commander: ^5.1.0
+    joi: ^17.6.0
+    react-helmet-async: ^1.3.0
+    utility-types: ^3.10.0
+    webpack: ^5.73.0
+    webpack-merge: ^5.8.0
+  peerDependencies:
+    react: ^16.8.4 || ^17.0.0
+    react-dom: ^16.8.4 || ^17.0.0
+  checksum: 3ca0cf7aadf6b0136adc61ebcf6fcf8fc6334f56790344493e03b7993a194215eaeb39f562e899785f6904ebe386a263bc166004431e01c0d3fe91674c267f60
   languageName: node
   linkType: hard
 
