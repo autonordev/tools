@@ -354,7 +354,7 @@ __metadata:
     eslint-plugin-promise: ^6.1.1
     eslint-plugin-security: ^1.7.0
     lodash: ^4.17.21
-    prettier: ^2.8.5
+    prettier: ^2.8.7
     prettier-config-standard: ^5.0.0
     prettier-plugin-packagejson: ^2.4.0
     prettier-plugin-sh: ^0.12.8
@@ -10119,12 +10119,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.8.5":
-  version: 2.8.5
-  resolution: "prettier@npm:2.8.5"
+"prettier@npm:^2.8.7":
+  version: 2.8.7
+  resolution: "prettier@npm:2.8.7"
   bin:
     prettier: bin-prettier.js
-  checksum: 32df014dadfa91a4f3250447078a335b93f5502ebfabf7236545edae34793d6ca5befb48b119e39ddaabfd131dbcba2ccaf081e658f73b3871dedadda3ab385a
+  checksum: 84c5b62f7d4909ae5b18b1a4cee67f6a30a548244c8919e67158dee1453f4fa4ff4d291c6f2e41e21d443a0c405f03ec27690502d4ad90c3a7c59bcaf38b51ba
   languageName: node
   linkType: hard
 
