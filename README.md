@@ -19,4 +19,4 @@ If you're thinking of getting involved, please read the [contributing guidelines
 
 ## Licence
 
-[MIT License](https://github.com/autonordev/tools/blob/main/LICNSE.md)
+[MIT License](https://github.com/autonordev/tools/blob/main/LICENSE.md)
