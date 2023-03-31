@@ -6,8 +6,8 @@
   "eslint.format.enable": true,
 
   "files.associations": {
-    "/example/**/tree.json": "jsonc",
-    "/example/**/rojo.json": "jsonc"
+    "**/tree.json": "jsonc",
+    "**/rojo.json": "jsonc"
   },
 
   "[javascript]": {
