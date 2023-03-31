@@ -2,7 +2,7 @@
 
 const fs = require('node:fs')
 const path = require('node:path')
-const { walk } = require('@root/walk')
+const { walk } = require('../../utilities/walk')
 
 const tomlParseSafe = require('../../utilities/tomlParseSafe')
 const normaliseInclude = require('../../utilities/normaliseInclude')

@@ -4,37 +4,58 @@ const fs = require('node:fs')
 const transformProperties = require('./properties')
 const hasChildren = require('./hasChildren')
 
+// NOTE: This is intentionally deviant from the resolvePath utility
 const resolvePath = (
   input,
   { rootPath, outputPath, divergentPaths, includePath }
 ) => {
-  if (input && input.startsWith('//')) {
+  if (!input || typeof input !== 'string') return input
+
+  // double slash is used to signify 'go to root'
+  if (input.startsWith('//')) {
     const absolutePath = path.join(rootPath, input.replace('//', './'))
     return path.relative(outputPath, absolutePath)
-  } else if (input && divergentPaths && !path.isAbsolute(input)) {
-    const absolutePath = path.join(includePath, input)
+  } else if (!path.isAbsolute(input) && divergentPaths) {
+    // if the path leads to something outside the workspace, we'll make it an absolute path
+    const absolutePath = path.resolve(includePath, input)
+    if (path.relative(rootPath, absolutePath).startsWith('..'))
+      return absolutePath
+
     return path.relative(outputPath, absolutePath)
   }
+
+  // if it's absolute, or we're in the output directory, no transforming needed
   return input
 }
 
-const _handlePullFile = (node, filePath, outputPath) => {
+const _handlePullFile = (node, filePath, pathData) => {
+  const { rootPath, includePath } = pathData
   const fileName = path.parse(filePath).name
-  const relativePath = path.relative(outputPath, filePath)
+
+  // TODO: List of files to ignore, etc.
+  if (fileName === '.gitkeep') return
 
   if (node[fileName] && node[fileName].$path) {
-    console.log(node)
     throw new Error(
       `[Gxxx] Attempted to pull ${filePath} as ${fileName} but there is a name collision`
     )
   }
 
+  let usePath
+  if (path.relative(rootPath, filePath).startsWith('..')) {
+    usePath = filePath
+  } else {
+    usePath = path.relative(includePath, filePath)
+  }
+
   if (!node[fileName]) node[fileName] = {}
-  node[fileName].$path = relativePath
+  node[fileName].$path = usePath
 }
 
-const handlePull = (node, pullFrom, { outputPath, includePath }) => {
-  const absolutePath = path.join(includePath, pullFrom)
+const handlePull = (node, pullFrom, pathData) => {
+  const { outputPath } = pathData
+  const absolutePath = path.resolve(outputPath, pullFrom)
+  let usePath = absolutePath
 
   if (!fs.existsSync(absolutePath)) {
     throw new Error(
@@ -42,12 +63,28 @@ const handlePull = (node, pullFrom, { outputPath, includePath }) => {
     )
   }
 
-  if (fs.lstatSync(absolutePath).isDirectory())
-    for (const file of fs.readdirSync(absolutePath)) {
+  const ent = fs.lstatSync(absolutePath)
+  const isDirectory = ent.isDirectory()
+  const isSymlink = ent.isSymbolicLink()
+
+  // resolve symlinks
+  if (isSymlink) {
+    /*
+      TODO: Rojo will follow symlinks so we don't need to use absolute paths.
+      We need to resolve them for node.fs to be able to get the data, but Rojo
+      doesn't need that. This would, however, increase the complexity of the
+      pulls functions.
+    */
+    const linkName = fs.readlinkSync(absolutePath)
+    usePath = path.resolve(absolutePath, linkName)
+  }
+
+  if (isDirectory || isSymlink)
+    for (const file of fs.readdirSync(usePath)) {
       const filePath = path.join(absolutePath, file)
-      _handlePullFile(node, filePath, outputPath)
+      _handlePullFile(node, filePath, pathData)
     }
-  else _handlePullFile(node, absolutePath, outputPath)
+  else _handlePullFile(node, absolutePath, pathData)
 }
 
 const transformNode = (parentNode, projectPath, includePath, rootPath) => {
@@ -104,7 +141,7 @@ const transformNode = (parentNode, projectPath, includePath, rootPath) => {
         handlePull(node, pullFrom, pathData)
       }
 
-      node.$pulls = undefined
+      delete node.$pulls
     }
 
     // And now transform the children of this node
