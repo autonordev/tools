@@ -349,7 +349,7 @@ __metadata:
     eslint-config-prettier: ^8.5.0
     eslint-config-standard: ^17.0.0
     eslint-plugin-import: ^2.27.5
-    eslint-plugin-n: ^15.6.0
+    eslint-plugin-n: ^15.7.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     eslint-plugin-security: ^1.7.0
@@ -2847,13 +2847,6 @@ __metadata:
   version: 1.0.0-next.21
   resolution: "@polka/url@npm:1.0.0-next.21"
   checksum: 53c1f28683a075aac41f8ce2a54eb952b6bc67a03494b2dca1cb63d833a6da898cea6a92df8e1e6b680db985fb7f9c16e11c20afa6584bcdda68a16fb4c18737
-  languageName: node
-  linkType: hard
-
-"@root/walk@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@root/walk@npm:1.1.0"
-  checksum: abe05563a702dcaf1613f3bb97111e4f5602ee1c6f92ebbc29685e5b3f1ffe7437454fcc63d7e1bea55404da60a0a6f14e7a355d6986ccdb4471051f00cd200d
   languageName: node
   linkType: hard
 
@@ -5916,9 +5909,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:^15.6.0":
-  version: 15.6.1
-  resolution: "eslint-plugin-n@npm:15.6.1"
+"eslint-plugin-n@npm:^15.7.0":
+  version: 15.7.0
+  resolution: "eslint-plugin-n@npm:15.7.0"
   dependencies:
     builtins: ^5.0.1
     eslint-plugin-es: ^4.1.0
@@ -5930,7 +5923,7 @@ __metadata:
     semver: ^7.3.8
   peerDependencies:
     eslint: ">=7.0.0"
-  checksum: 23b825d580477b519fa5dd2b3d496ec87b30d3a81a77adccfa9930c29c6534a6f95021d4baa0e957dcc7455640a7f0d85958c048aa932156b911b024941942c2
+  checksum: 192ec3188cc72ed892d80ddf26011cb52beb2c61f0867bc5e93cb7efa9dd3ff834a0062b46d5aab3aa4a034a09df577434e571a1384d8f569f16f2c956f5bcb7
   languageName: node
   linkType: hard
 
@@ -6693,7 +6686,6 @@ __metadata:
   resolution: "gaffer-rbx@workspace:gaffer"
   dependencies:
     "@iarna/toml": 3.0.0
-    "@root/walk": ^1.1.0
     chalk: ^4.1.2
     commander: ^10.0.0
     comment-json: ^4.2.3
