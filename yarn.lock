@@ -2850,13 +2850,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@root/walk@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@root/walk@npm:1.1.0"
-  checksum: abe05563a702dcaf1613f3bb97111e4f5602ee1c6f92ebbc29685e5b3f1ffe7437454fcc63d7e1bea55404da60a0a6f14e7a355d6986ccdb4471051f00cd200d
-  languageName: node
-  linkType: hard
-
 "@sideway/address@npm:^4.1.3":
   version: 4.1.4
   resolution: "@sideway/address@npm:4.1.4"
@@ -6693,11 +6686,10 @@ __metadata:
   resolution: "gaffer-rbx@workspace:gaffer"
   dependencies:
     "@iarna/toml": 3.0.0
-    "@root/walk": ^1.1.0
     chalk: ^4.1.2
     commander: ^10.0.0
     comment-json: ^4.2.3
-    joi: ^17.9.0
+    joi: ^17.9.1
     shelljs: ^0.8.5
     shelljs-live: ^0.0.5
   bin:
@@ -8104,16 +8096,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"joi@npm:^17.9.0":
-  version: 17.9.0
-  resolution: "joi@npm:17.9.0"
+"joi@npm:^17.9.1":
+  version: 17.9.1
+  resolution: "joi@npm:17.9.1"
   dependencies:
     "@hapi/hoek": ^9.0.0
     "@hapi/topo": ^5.0.0
     "@sideway/address": ^4.1.3
     "@sideway/formula": ^3.0.1
     "@sideway/pinpoint": ^2.0.0
-  checksum: 993993614f47b987370aad188ac30c67d479ed7bd43b091df492101acf1463c99b849a26c6215b4502a33063ba08686c8693485a19e069a1270490f015af37c1
+  checksum: 27bae524494f42db55a5a5e5e794c2616ad3524695af8f92f6c122dd5e65b12f2c0b76960cf0f1da7b01e5eb06d4b0579f96edf6b4df890c3fd6517f43dee6be
   languageName: node
   linkType: hard
 
