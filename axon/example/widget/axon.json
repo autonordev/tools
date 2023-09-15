@@ -1,0 +1,5 @@
+{
+  "name": "widget",
+  "uses": ["new-lib"],
+  "exports": "./src"
+}

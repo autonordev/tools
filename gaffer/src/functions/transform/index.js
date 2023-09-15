@@ -46,7 +46,8 @@ module.exports = async (state) => {
           importTree(include),
           project.outputs.project,
           include.path,
-          state.root
+          state.root,
+          include.mountPoint
         )
       )
     }

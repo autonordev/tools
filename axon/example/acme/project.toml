@@ -1,0 +1,6 @@
+name = "axon-test"
+edition = 0
+includes = ["widget"]
+
+[outputs]
+build = "place.rbxl"

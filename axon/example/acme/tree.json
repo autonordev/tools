@@ -1,0 +1,7 @@
+{
+  "ReplicatedStorage": {
+    "deps": { "$pulls": "./deps", "$className": "Folder" },
+    "Lib": { "$pulls": "./deps/new-lib", "$className": "Folder" },
+    "Lib2": { "$path": "./deps/new-lib" }
+  }
+}

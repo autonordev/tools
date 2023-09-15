@@ -17,6 +17,7 @@ module.exports = (program) => {
         )
       } catch (err) {
         log.error(err.message)
+        throw err
       }
     })
 }

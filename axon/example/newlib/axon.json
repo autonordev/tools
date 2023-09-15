@@ -1,0 +1,4 @@
+{
+  "name": "new-lib",
+  "exports": "./lib"
+}

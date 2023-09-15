@@ -1,0 +1,37 @@
+{
+  "name": "@autonor/axon",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A basic dependency linker, focused on rapid Roblox development.",
+  "keywords": [
+    "rojo",
+    "roblox",
+    "gaffer"
+  ],
+  "homepage": "https://tools.autonor.me/axon",
+  "bugs": {
+    "url": "https://github.com/autonordev/tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/autonordev/tools",
+    "directory": "axon"
+  },
+  "license": "MIT",
+  "main": "./src/index.js",
+  "bin": {
+    "axon": "./src/index.js"
+  },
+  "dependencies": {
+    "@iarna/toml": "3.0.0",
+    "chalk": "^4.1.2",
+    "commander": "^10.0.0",
+    "comment-json": "^4.2.3",
+    "joi": "^17.9.0",
+    "shelljs": "^0.8.5",
+    "shelljs-live": "^0.0.5"
+  },
+  "engines": {
+    "node": ">=18.12 <=19.x"
+  }
+}

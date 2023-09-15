@@ -1,0 +1,5 @@
+{
+  "ServerScriptService": {
+    "widget": "./duck.lua"
+  }
+}

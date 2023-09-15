@@ -8,7 +8,8 @@ const execute = async ({ entity, root, item, includeNewLine }) => {
   const dir = await resolvePath(
     typeof item === 'string' ? '.' : item.dir,
     entity.path,
-    root
+    root,
+    entity.mountPoint
   )
 
   if (includeNewLine === true) console.log('')

@@ -18,7 +18,7 @@ const pass = (err) => err
 
 // a port of Go's filepath.Walk
 // Gaffer Edit: we deviate from this intentionally, most notably by following symlinks
-const walk = async (pathname, walkFunc, _dirent) => {
+const walk = async (pathname, walkFunc, _dirent, _mountPoint) => {
   let err
 
   // special case of the very first run
@@ -33,7 +33,7 @@ const walk = async (pathname, walkFunc, _dirent) => {
   }
 
   // run the user-supplied function and either skip, bail, or continue
-  err = await walkFunc(err, pathname, _dirent).catch(pass)
+  err = await walkFunc(err, pathname, _dirent, _mountPoint).catch(pass)
   if (err === false || skipDir === err) {
     return
   }
@@ -42,6 +42,7 @@ const walk = async (pathname, walkFunc, _dirent) => {
   }
 
   if (_dirent.isSymbolicLink()) {
+    _mountPoint = pathname
     const linkName = await fs.readlink(pathname)
     pathname = path.resolve(pathname, linkName)
   } else if (!_dirent.isDirectory()) {
@@ -50,10 +51,10 @@ const walk = async (pathname, walkFunc, _dirent) => {
 
   const result = await fs.readdir(pathname, _withFileTypes).catch(pass)
   if (result instanceof Error) {
-    return walkFunc(result, pathname, _dirent)
+    return walkFunc(result, pathname, _dirent, _mountPoint)
   }
   for (const dirent of result) {
-    await walk(path.join(pathname, dirent.name), walkFunc, dirent)
+    await walk(path.join(pathname, dirent.name), walkFunc, dirent, _mountPoint)
   }
 }
 

@@ -1,6 +1,6 @@
 const path = require('node:path')
 
-module.exports = async (input, dirname, root) => {
+module.exports = async (input, dirname, root, mount) => {
   // Relative (e.g. ../my-package)
   if (!path.isAbsolute(input)) {
     return path.resolve(dirname, input)
@@ -8,7 +8,7 @@ module.exports = async (input, dirname, root) => {
 
   // Absolute (e.g. //pkg/my-package)
   if (input.startsWith('//')) {
-    return path.resolve(root, input.replace('//', './'))
+    return path.resolve(mount || root, input.replace('//', './'))
   }
 
   // Absolute path already

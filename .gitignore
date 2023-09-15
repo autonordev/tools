@@ -169,3 +169,6 @@ $RECYCLE.BIN/
 !**/Packages/**/default.project.json
 !**/ServerPackages/**/default.project.json
 !**/DevPackages/**/default.project.json
+
+# Axon links
+**/deps

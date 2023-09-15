@@ -4,22 +4,32 @@ const fs = require('node:fs')
 const transformProperties = require('./properties')
 const hasChildren = require('./hasChildren')
 
-// NOTE: This is intentionally deviant from the resolvePath utility
+// NOTE: This is intentionally (a little) deviant from the resolvePath utility
 const resolvePath = (
   input,
-  { rootPath, outputPath, divergentPaths, includePath }
+  { rootPath, outputPath, divergentPaths, includePath, mountPoint }
 ) => {
   if (!input || typeof input !== 'string') return input
+  const root = mountPoint || rootPath
+
+  // This is used as a marker to indicate that the path has already been resolved
+  if (input.startsWith('>')) return input.replace('>', '')
 
   // double slash is used to signify 'go to root'
   if (input.startsWith('//')) {
-    const absolutePath = path.join(rootPath, input.replace('//', './'))
+    const absolutePath = path.join(root, input.replace('//', './'))
     return path.relative(outputPath, absolutePath)
   } else if (!path.isAbsolute(input) && divergentPaths) {
-    // if the path leads to something outside the workspace, we'll make it an absolute path
+    // We used to make anything outside the workspace an absolute path, but this
+    // caused issues with Rojo sourcemaps, so we don't do that anymore.
     const absolutePath = path.resolve(includePath, input)
-    if (path.relative(rootPath, absolutePath).startsWith('..'))
-      return absolutePath
+
+    if (mountPoint) {
+      const mountRelative = path.relative(outputPath, mountPoint)
+      const linkName = fs.readlinkSync(mountPoint)
+      const childPath = path.relative(linkName, absolutePath)
+      return path.join(mountRelative, childPath)
+    }
 
     return path.relative(outputPath, absolutePath)
   }
@@ -29,7 +39,7 @@ const resolvePath = (
 }
 
 const _handlePullFile = (node, filePath, pathData) => {
-  const { rootPath, includePath } = pathData
+  const { outputPath, mountPoint } = pathData
   const fileName = path.parse(filePath).name
 
   // TODO: List of files to ignore, etc.
@@ -41,11 +51,12 @@ const _handlePullFile = (node, filePath, pathData) => {
     )
   }
 
-  let usePath
-  if (path.relative(rootPath, filePath).startsWith('..')) {
-    usePath = filePath
-  } else {
-    usePath = path.relative(includePath, filePath)
+  let usePath = `>${path.relative(outputPath, filePath)}`
+
+  if (mountPoint) {
+    const linkName = fs.readlinkSync(mountPoint)
+    const childPath = path.relative(linkName, filePath)
+    usePath = `>${path.relative(outputPath, childPath)}`
   }
 
   if (!node[fileName]) node[fileName] = {}
@@ -69,12 +80,6 @@ const handlePull = (node, pullFrom, pathData) => {
 
   // resolve symlinks
   if (isSymlink) {
-    /*
-      TODO: Rojo will follow symlinks so we don't need to use absolute paths.
-      We need to resolve them for node.fs to be able to get the data, but Rojo
-      doesn't need that. This would, however, increase the complexity of the
-      pulls functions.
-    */
     const linkName = fs.readlinkSync(absolutePath)
     usePath = path.resolve(absolutePath, linkName)
   }
@@ -87,7 +92,13 @@ const handlePull = (node, pullFrom, pathData) => {
   else _handlePullFile(node, absolutePath, pathData)
 }
 
-const transformNode = (parentNode, projectPath, includePath, rootPath) => {
+const transformNode = (
+  parentNode,
+  projectPath,
+  includePath,
+  rootPath,
+  mountPoint // used for symlinks
+) => {
   const outputPath = path.dirname(projectPath)
   const divergentPaths = outputPath !== includePath
 
@@ -101,7 +112,8 @@ const transformNode = (parentNode, projectPath, includePath, rootPath) => {
       rootPath,
       outputPath,
       divergentPaths,
-      includePath
+      includePath,
+      mountPoint
     }
 
     // Item: "./path-to-item"
@@ -149,7 +161,8 @@ const transformNode = (parentNode, projectPath, includePath, rootPath) => {
       node,
       projectPath,
       includePath,
-      rootPath
+      rootPath,
+      mountPoint
     )
   }
 

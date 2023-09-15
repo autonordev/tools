@@ -15,14 +15,17 @@ const GAFFER_FILENAMES = ['project.toml', 'package.toml']
 module.exports = async (state, filter = false) => {
   // 1. Discover all relevant files
   const interestedFiles = []
-  const walkFunc = async (err, pathName, dirent) => {
+  const walkFunc = async (err, pathName, dirent, mountPoint) => {
     if (err) return false
 
     if (
       dirent.isFile() &&
       GAFFER_FILENAMES.includes(dirent.name.toLowerCase())
     ) {
-      interestedFiles.push(path.resolve(process.cwd(), pathName))
+      interestedFiles.push({
+        filePath: path.resolve(process.cwd(), pathName),
+        mountPoint
+      })
     }
   }
 
@@ -33,7 +36,8 @@ module.exports = async (state, filter = false) => {
   state.packageMapByPath = new Map()
 
   // 2. Parse and handle these files
-  for (const filePath of interestedFiles) {
+  for (const file of interestedFiles) {
+    const { filePath, mountPoint } = file
     const fileName = path.basename(filePath)
     const isProject = fileName.toLowerCase() === 'project.toml'
     const isPackage = fileName.toLowerCase() === 'package.toml'
@@ -76,6 +80,7 @@ module.exports = async (state, filter = false) => {
       scheme = value
     }
 
+    scheme.mountPoint = mountPoint
     scheme.path = path.dirname(filePath)
     scheme.isPackage = isPackage
     scheme.isProject = isProject
@@ -89,13 +94,15 @@ module.exports = async (state, filter = false) => {
       scheme.outputs.project = await resolvePath(
         scheme.outputs.project,
         scheme.path,
-        state.root
+        state.root,
+        scheme.mountPoint
       )
       if (scheme.outputs.build !== false)
         scheme.outputs.build = await resolvePath(
           scheme.outputs.build,
           scheme.path,
-          state.root
+          state.root,
+          scheme.mountPoint
         )
     }
 
