@@ -14,9 +14,9 @@ const config = {
   favicon: 'favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://tools.autonor.me',
+  url: 'https://autonordev.github.io/tools/',
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/',
+  baseUrl: '/tools/',
 
   // GitHub pages deployment config.
   organizationName: 'autonordev',
@@ -142,17 +142,17 @@ const config = {
       },
 
       announcementBar: {
-        id: 'ann-0', // increment when content changes
+        id: 'ann-1', // increment when content changes
         content:
-          'Beware: here be dragons! All projects contained within this site are, currently, experimental.',
-        isCloseable: true,
+          'All projects contained within this site have been retired.',
+        isCloseable: false,
         backgroundColor: '#d4351c',
         textColor: '#ffffff'
       },
 
       footer: {
         links: [],
-        copyright: `Copyright © ${new Date().getFullYear()} autonor<br/>Licensed under MIT`
+        copyright: `Copyright © 2023 autonor<br/>Licensed under MIT`
       }
     })
 }
