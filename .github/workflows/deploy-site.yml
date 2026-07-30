@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - '.github/workflows/deploy-site.yml'
+      - '.github/actions/setup/action.yml'
       - 'website/**'
 
 defaults:
