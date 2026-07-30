@@ -2,20 +2,18 @@
 
 # tools
 
-This repository houses the tools I have created and maintain for use in developing Roblox games.
+This repository houses the tools I created for use in developing Roblox games.
 
 These tools are:
 
-- [Gaffer](https://github.com/autonordev/tools/tree/main/gaffer), a monorepo orchestrator (experimental)
-- Axon, a package linker for use with Gaffer (not yet open sourced)
+- [Gaffer](https://github.com/autonordev/tools/tree/main/gaffer), a monorepo orchestrator
+- Axon, a package linker for use with Gaffer (very hap-hasidly open sourced)
 
-and any further tools I develop in this domain.
+You should use [Jafa](https://github.com/Blaadam/jafa) instead. It is the spiritual successor to Gaffer, built by someone who worked with me on an extremely large and complex Gaffer-using project. 
 
 ## Resources
 
-Documentation and more can be found at [tools.autonor.me](https://tools.autonor.me).
-
-If you're thinking of getting involved, please read the [contributing guidelines](https://github.com/autonordev/tools/blob/main/CONTRIBUTING.md) first.
+Documentation and more can be found in the `website` directory.
 
 ## Licence
 
